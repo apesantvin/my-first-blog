@@ -44,7 +44,7 @@ SILENCED_SYSTEM_CHECKS=[
     'admin.E409',
     'admin.E410',
 ]
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
