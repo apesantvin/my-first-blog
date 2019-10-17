@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .forms import PostForm, CommentForm
 from .models import Post, Comment
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login as do_login
 from django.contrib.auth.decorators import login_required
 
 def post_list(request):
@@ -83,5 +85,14 @@ def comment_remove(request, pk):
     comment.delete()
     return redirect('blog:post_detail', pk=comment.post.pk)
 
-
+def register(request):
+    form = UserCreationForm()
+    if request.method == "POST":
+        form = UserCreationForm(data=request.POST)
+        if form.is_valid():
+            user = form.save()
+            if user is not None:
+                do_login(request, user)
+                return redirect('/')
+    return render(request, "blog/register.html", {'form': form})
 # Create your views here.
