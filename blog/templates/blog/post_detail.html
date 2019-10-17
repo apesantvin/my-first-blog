@@ -17,6 +17,9 @@
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
     <hr>
+        <div class="autor">
+            Autor del post: {{ post.author }}
+        </div>
         <a class="btn btn-default" href="{% url 'blog:add_comment_to_post' pk=post.pk %}">Add comment</a>
         {% for comment in post.comments.all %}
             {% if user.is_authenticated or comment.approved_comment %}
@@ -28,7 +31,7 @@
                         <a class="btn btn-default" href="{% url 'blog:comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
                     {% endif %}
                 </div>
-                <strong>{{ comment.author }}</strong>
+                <strong>Comentario de: {{ comment.author }}</strong>
                 <p>{{ comment.text|linebreaks }}</p>
             </div>
             {% endif %}
