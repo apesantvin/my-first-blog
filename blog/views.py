@@ -87,8 +87,12 @@ def comment_remove(request, pk):
 
 def register(request):
     form = UserCreationForm()
+    form.fields['username'].help_text = None
+    form.fields['password1'].help_text = None
+    form.fields['password2'].help_text = None
     if request.method == "POST":
         form = UserCreationForm(data=request.POST)
+
         if form.is_valid():
             user = form.save()
             if user is not None:
