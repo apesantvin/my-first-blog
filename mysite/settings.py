@@ -25,7 +25,9 @@ SECRET_KEY = '_k77u2@!fron5i0kh=#2^l62ew@@dv^7r(&*6l_ek@hhtr+%#c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['apesantvin.pythonanywhere.com']
+ALLOWED_HOSTS = ['apesantvin.pythonanywhere.com',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -71,6 +73,8 @@ TEMPLATES = [
         },
     },
 ]
+            
+LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
