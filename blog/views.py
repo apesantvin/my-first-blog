@@ -12,7 +12,7 @@ def post_list(request):
 
 @login_required
 def post_draft_list(request):
-    posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
+    posts = Post.objects.filter(published_date__isnull=True).filter(author=request.user).order_by('created_date')
     return render(request, 'blog/post_draft_list.html', {'posts': posts})
 
 def post_detail(request, pk):
