@@ -1,8 +1,9 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <h2>Registrar usuario</h2>
-
+    <div class="Titulo_register">
+        <h2>Registrar usuario</h2>
+    </div>
     <form method="post">
         {{ form.as_p }}
         {% csrf_token %}
