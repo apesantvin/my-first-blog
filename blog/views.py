@@ -95,14 +95,14 @@ def register(request):
                 do_login(request, user)
                 return redirect('/')
     return render(request, "blog/register.html", {'form': form})
-
+@login_required
 def user(request):
     posts = Post.objects.filter(author=request.user).order_by('-published_date')
     return render(request, "blog/datos_usuario.html", {'posts': posts})
-
+@login_required
 def usuario_confg(request):
     return render(request, 'blog/usuario_confg.html')
-    
+@login_required
 def account_remove(request):
     me = get_object_or_404(User, username=request.user.username)
     posts = Post.objects.all()
