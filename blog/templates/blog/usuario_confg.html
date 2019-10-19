@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <dev class='user'>
+        <div class='configuracion'>
+            <h1> Configuración </h1>
+        </div>
+        <div class='texto_conf'>
+            <h3> Salir de la cuenta </h3>
+            <a class="btn btn-default" href="{% url 'logout' %}">Salir de la cuenta</a>
+            <h3> Eliminar cuenta o usuario </h3>
+            <p> Tenga en cuenta que si <strong>elimina su cuenta</strong> sus posts y comentarios se elimininarán también.</p>
+            <a class="btn btn-default" href="{% url 'blog:account_remove' %}">Eliminar cuenta</a>
+        </div>
+    </dev>
+{% endblock content %}
