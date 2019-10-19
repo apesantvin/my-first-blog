@@ -30,7 +30,7 @@
                         <a class="btn btn-default" href="{% url 'blog:comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
                     {% endif %}
                 </div>
-                <strong>Comentario de: <a href="{% url 'blog:user' usuario=post.author %}"> {{ comment.author }}</a></strong>
+                <strong>Comentario de: <a href="{% url 'blog:user' usuario=comment.author %}"> {{ comment.author }}</a></strong>
                 <p>{{ comment.text|linebreaks }}</p>
             </div>
             {% endif %}
