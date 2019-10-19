@@ -114,5 +114,5 @@ def account_remove(request):
         if com.author == request.user.username:
             com.delete()
     me.delete()
-    return redirect('/')
+    return redirect('/')zz
 # Create your views here.
