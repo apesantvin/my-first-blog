@@ -14,6 +14,6 @@ urlpatterns = [
     path('comment/<int:pk>/remove/', views.comment_remove, name='comment_remove'),
     path('register', views.register, name='register'),
     path('account_remove', views.account_remove, name='account_remove'),
-    path('user', views.user, name='user'),
+    path('user/<usuario>', views.user, name='user'),
     path('usuario_confg', views.usuario_confg, name='usuario_confg'),
 ]

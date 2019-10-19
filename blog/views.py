@@ -96,8 +96,9 @@ def register(request):
                 return redirect('/')
     return render(request, "blog/register.html", {'form': form})
 @login_required
-def user(request):
-    posts = Post.objects.filter(author=request.user).order_by('-published_date')
+def user(request,usuario):
+    usuario_random = get_object_or_404(User, username=usuario)
+    posts = Post.objects.filter(author=usuario_random).order_by('-published_date')
     return render(request, "blog/datos_usuario.html", {'posts': posts})
 @login_required
 def usuario_confg(request):
@@ -114,5 +115,5 @@ def account_remove(request):
         if com.author == request.user.username:
             com.delete()
     me.delete()
-    return redirect('/')zz
+    return redirect('/')
 # Create your views here.
