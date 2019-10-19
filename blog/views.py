@@ -95,11 +95,15 @@ def register(request):
                 do_login(request, user)
                 return redirect('/')
     return render(request, "blog/register.html", {'form': form})
-@login_required
+
 def user(request,usuario):
     usuario_random = get_object_or_404(User, username=usuario)
-    posts = Post.objects.filter(author=usuario_random).order_by('-published_date')
-    return render(request, "blog/datos_usuario.html", {'posts': posts})
+    posts = Post.objects.filter(author=usuario_random).filter(published_date__lte=timezone.now()).order_by('-published_date')
+    if usuario_random==request.user:
+        usuario_random= 'Mis post son:'
+    else:
+        usuario_random='Posts de '+ usuario +':'
+    return render(request, "blog/datos_usuario.html", {'posts': posts, 'usuario':usuario_random})
 @login_required
 def usuario_confg(request):
     return render(request, 'blog/usuario_confg.html')
