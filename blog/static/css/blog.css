@@ -14,7 +14,7 @@ textarea {
     color : #000000
 }
 
-label, .Titulo_register, .editar_texto_titulo, .añadir_commen_titulo{
+label, .Titulo_register, .editar_texto_titulo, .añadir_commen_titulo, .titulo_borrador{
     color: #d2e405; 
 }
 
