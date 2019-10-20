@@ -97,7 +97,7 @@ def register(request):
             if user is not None:
                 do_login(request, user)
                 return redirect('/')
-    return render(request, "account/register.html", {'form': form})
+    return render(request, "registration/register.html", {'form': form})
 
 def user(request,usuario):
     usuario_random = get_object_or_404(User, username=usuario)
@@ -123,7 +123,7 @@ def account_remove(request):
             com.delete()
     me.delete()
     return redirect('/')
-
+@login_required
 def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
