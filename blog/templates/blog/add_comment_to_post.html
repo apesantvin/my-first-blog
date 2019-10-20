@@ -2,12 +2,12 @@
 
 {% block content %}
     <div class="añadir_commen_titulo">
-        <h1>New comment</h1>
+        <h1>Nuevo comentario</h1>
     </div>
     <form method="POST" class="post-form">{% csrf_token %}
         <div class="añadir_commen">
             {{ form.as_p }}
         </div>
-        <button type="submit" class="save btn btn-default">Send</button>
+        <button type="submit" class="save btn btn-default">Enviar</button>
     </form>
 {% endblock %}

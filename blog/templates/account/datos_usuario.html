@@ -11,7 +11,7 @@
                 </div>
                 <h3><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
                 <p>{{ post.text|linebreaksbr }}</p>
-                <a href="{% url 'blog:post_detail' pk=post.pk %}">Cometarios: {{ post.approved_comments.count }}</a>
+                <a href="{% url 'blog:post_detail' pk=post.pk %}">Comentarios: {{ post.approved_comments.count }}</a>
                 <br>
             {% endfor %}
         </div>

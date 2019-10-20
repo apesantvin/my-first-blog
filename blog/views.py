@@ -97,7 +97,7 @@ def register(request):
             if user is not None:
                 do_login(request, user)
                 return redirect('/')
-    return render(request, "blog/register.html", {'form': form})
+    return render(request, "account/register.html", {'form': form})
 
 def user(request,usuario):
     usuario_random = get_object_or_404(User, username=usuario)
@@ -106,10 +106,10 @@ def user(request,usuario):
         usuario_random= 'Mis post son:'
     else:
         usuario_random='Posts de '+ usuario +':'
-    return render(request, "blog/datos_usuario.html", {'posts': posts, 'usuario':usuario_random})
+    return render(request, "account/datos_usuario.html", {'posts': posts, 'usuario':usuario_random})
 @login_required
 def usuario_confg(request):
-    return render(request, 'blog/usuario_confg.html')
+    return render(request, 'account/usuario_confg.html')
 @login_required
 def account_remove(request):
     me = get_object_or_404(User, username=request.user.username)
@@ -136,7 +136,7 @@ def change_password(request):
             messages.error(request, 'Please correct the error below.')
     else:
         form = PasswordChangeForm(request.user)
-    return render(request, 'blog/change_password.html', {
+    return render(request, 'account/change_password.html', {
         'form': form
     })
 # Create your views here.
