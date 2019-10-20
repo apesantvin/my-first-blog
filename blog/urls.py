@@ -16,4 +16,5 @@ urlpatterns = [
     path('account_remove', views.account_remove, name='account_remove'),
     path('user/<usuario>', views.user, name='user'),
     path('usuario_confg', views.usuario_confg, name='usuario_confg'),
+    path('password', views.change_password, name='change_password'),
 ]

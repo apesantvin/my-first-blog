@@ -5,6 +5,9 @@ from .models import Post, Comment
 from django.contrib.auth.forms import UserCreationForm, User
 from django.contrib.auth import login as do_login
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
@@ -120,4 +123,20 @@ def account_remove(request):
             com.delete()
     me.delete()
     return redirect('/')
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('blog:usuario_confg')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'blog/change_password.html', {
+        'form': form
+    })
 # Create your views here.
