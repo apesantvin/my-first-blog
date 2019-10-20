@@ -13,7 +13,9 @@
                 <a class="btn btn-default" href="{% url 'blog:post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
                 <a class="btn btn-default" href="{% url 'blog:post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
         {% endif %}
-        <h2>{{ post.title }}</h2>
+        <div class="Titulo_post">
+            <h2>{{ post.title }}</h2>
+        </div>
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
     <hr>

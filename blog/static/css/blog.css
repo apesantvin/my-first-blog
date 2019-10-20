@@ -1,5 +1,5 @@
-h1 a {
-    color : #FCA205;
+h1 a, .Titulo_post {
+    color : #c78a08;
     font-family : 'Lobster';
 }
 body {
@@ -14,10 +14,9 @@ textarea {
     color : #000000
 }
 
-label, .Titulo_register, .editar_texto_titulo, .añadir_commen_titulo, .titulo_borrador{
-    color: #d2e405; 
+label, .Titulo_register, .editar_texto_titulo, .añadir_commen_titulo, .titulo_borrador, .perfil_nombre, .configuracion, .post p, .texto_conf{
+    color: #a22735;
 }
-
 .page-header {
     background-color:#810813;
     margin-top:0;
@@ -37,7 +36,7 @@ h1, h2, h3, h4{
 }
 .date, .autor{
     float: right;
-    color:#699a24;    
+    color:#d14a0b;    
 }
 .save{
     float: right;    
@@ -54,18 +53,12 @@ h1, h2, h3, h4{
 .post{
     margin-bottom:70px;    
 }
-.post h1 a, .post h1 a:visited ,.post p, .post h2, .texto_conf{
-    color: #97ff00;    
-}
 .color_no_comment{
     color: #0e71b6;    
 }
-.perfil_nombre, .configuracion{
-    color: #a22735;
-}
 .comment {
     margin: 20px 0px 20px 20px;
-    color: #5aad58;  
+    color: #f95c5c;  
 }
 .error{
     color: #f50f0f;
