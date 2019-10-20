@@ -13,5 +13,10 @@
                 Autor del post: <a href="{% url 'blog:user' usuario=post.author %}"> {{ post.author }}</a>
             </div>
         </div>
+    {% empty %}
+            <div class="color_no_comment">
+                <br><br>
+                <p>No hay ningún post todavia, dale al mas de arriba a la derecha para agregar uno. (Esto solo se le permite a los usuarios registrados):(</p>
+            </div>
     {% endfor %}
 {% endblock content %}

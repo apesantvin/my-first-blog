@@ -10,5 +10,10 @@
             <h1><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|truncatechars:200 }}</p>
         </div>
+    {% empty %}
+            <div class="color_no_comment">
+                <br><br>
+                <p>No tienes borradores</p>
+            </div>
     {% endfor %}
 {% endblock %}
