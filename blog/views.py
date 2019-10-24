@@ -94,7 +94,6 @@ def register(request):
 
         if form.is_valid():
             user = form.save()
-            user.email=form.email
             if user is not None:
                 do_login(request, user)
                 return redirect('/')

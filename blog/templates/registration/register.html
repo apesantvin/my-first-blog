@@ -8,15 +8,12 @@
         {% csrf_token %}
         {% if form.errors %}
             <div class="Error">
-                <p>Este usuario ya está cogido o el correo electrónico ya está en uso, elija otros:</p>
+                <p>Este usuario ya está cogido, elija otro:</p>
             </div>
         {% endif %}
         <br>
         <label for="id_username">Usuario:</label>
         <input id="id_username" type="text" name="username" maxlength="150" autofocus="" required="">
-        <br>
-        <label for="id_email">Email:</label>
-        <input id="id_email" type="text" name="email" maxlength="150" autofocus="" required="">
         <br>
         <label for="id_password1"> Contraseña:</label>
         <input id="id_password1" type="password" name="password1" required="">
