@@ -8,7 +8,7 @@
         {% csrf_token %}
         {% if form.errors %}
             <div class="Error">
-                <p>Este usuario ya está cogido, elija otro:</p>
+                <p>Este usuario ya está cogido, elija otro, o las contraseñas no coinciden, intentelo de nuevo:</p>
             </div>
         {% endif %}
         <br>
